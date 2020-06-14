@@ -4,6 +4,7 @@
 #include <iostream>
 #include "phaseOneExtraction.h"
 #include "phaseTwoExtraction.h"
+#include "courseObject.h"
 
 using namespace std;
 
@@ -28,17 +29,24 @@ int main()
 	}
 	cout << "tagScrubber successful!" << endl;
 
-	for (unsigned courseIndex = 0; courseIndex < courses.size(); courseIndex++) {
-		cout << "START OF COURSE" << endl;
-		for (unsigned elementIndex = 0; elementIndex < courses.at(courseIndex).size(); elementIndex++) {
-			cout << *courses.at(courseIndex).at(elementIndex) << endl;
-		}
-		cout << "END OF COURSE" << endl;
+	vector<Course> courseObjects(courses.size());
+
+	for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
+		courseObjects.at(courseIndex) = Course(courses.at(courseIndex));
 	}
 
+	for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
+		courseObjects.at(courseIndex).printAll();
+		cout << endl;
+	}
 
-
-
+	//for (unsigned courseIndex = 0; courseIndex < courses.size(); courseIndex++) {
+	//	cout << "START OF COURSE" << endl;
+	//	for (unsigned elementIndex = 0; elementIndex < courses.at(courseIndex).size(); elementIndex++) {
+	//		cout << *courses.at(courseIndex).at(elementIndex) << endl;
+	//	}
+	//	cout << "END OF COURSE" << endl;
+	//}
 
 	//for (int i = 0; i < storage.size(); i++) {
 		//cout << *storage.at(i) << endl << endl;

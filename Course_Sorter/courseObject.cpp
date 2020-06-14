@@ -27,3 +27,18 @@ Course::Course(vector<string*>& course) {
 	status = *course.at(9);
 	reservedSeats = *course.at(10);
 }
+
+void Course::printAll() {
+	
+	cout << "CRN: " << courseReferenceNumber << endl;
+	cout << "Subject: " << subject << endl;
+	cout << "Subject Description: " << subjectDescription << endl;
+	cout << "Course Number: " << courseNumber << endl;
+	cout << "Sequence Number: " << sequenceNumber << endl;
+	cout << "Course Title: " << courseTitle << endl;
+	cout << "Credit Hours: " << creditHours << endl;
+	cout << "Meeting Time: " << meetingTime << endl;
+	cout << "Instructor: " << instructor << endl;
+	cout << "Status: " << status << endl;
+	cout << "Reserved Seats: " << reservedSeats << endl;
+}

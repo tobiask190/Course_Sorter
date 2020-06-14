@@ -1,5 +1,7 @@
 #include "phaseOneExtraction.h"
 
+//This code will be shortened after extraction code is done. 
+
 bool extractCourseLine(const string& inputFileName) {
 
 	bool located;
@@ -59,7 +61,7 @@ bool extractCourseLine(const string& inputFileName) {
 }
 
 bool findTableOne(ifstream &inFS) {
-
+	/* Helper function to extractCourseLine.*/
 	string testString;
 	char tempChar;
 	bool foundID = false;
@@ -105,15 +107,25 @@ bool findTableOne(ifstream &inFS) {
 }
 
 bool findTBody(ifstream& inFS) {
-	
+	/* Takes in a string one at a time and
+	checks to see if it's '<'. If so, it 
+	getlines until it reaches a '>'. If the 
+	string is "tbody", it stops reading. If 
+	not, then it continues. All inputs are 
+	discarded.*/
+
 	char tempChar;
 	string tempString;
 
+	// Get character with each iteration
 	while (inFS >> tempChar) {
 		
+		// Check if char is '<'
 		if (tempChar == '<') {
+			//Get string until '>', exclude '>'
 			getline(inFS, tempString, '>');
 
+			//Check if tempString is "tbody"
 			if (tempString == "tbody") {
 				return true;
 			}
@@ -125,10 +137,15 @@ bool findTBody(ifstream& inFS) {
 }
 
 bool textExtraction(ifstream& inFS) {
-	
+	/* Helper function to extractCourseLine
+	Continues to extract until </tbody> is 
+	reached. In addition, adds newlines to help
+	with the readability of the html.
+	*/
 	char tempChar;
 	string tempString;
 
+	// Open output file
 	ofstream outFS;
 	outFS.open("filteredHTML.txt");
 
@@ -141,7 +158,7 @@ bool textExtraction(ifstream& inFS) {
 
 	}
 
-
+	// Begin 
 	while (inFS >> tempChar) {
 
 		if (tempChar == '<') {
