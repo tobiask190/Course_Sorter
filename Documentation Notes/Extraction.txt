@@ -1,0 +1,49 @@
+The table is marked by a unique identifier known as "table1"
+
+From there, you just need to copy the code starting from <tbody> and ending at </tbody>
+
+---Psuedo-babble---
+
+--Loop 1--
+
+1. When a '<' appears, the code continously checks for the word "id=".
+
+2. If "id=" does not appear, continue until the next '>' and then ignore until a '<' appears and go to (1). 
+
+3. If "id=" appears, check if the following string is "table1", stopping at the last ". 
+
+4. If it's not "table1", the cin.ignore until the next '<' and go to (1)
+
+5. If it is "table1", break the loop.
+
+---------- 
+
+--Loop 2--
+
+1. When a '<' appears, the code checks to see if the FIRST values correspond to "tbody" without the quotes.
+
+2. If it's not tbody, then cin.ignore until the next '<' and go to (1)
+
+3. If it is tbody, then discard until the '>' and begin writing the ENTIRETY of the contents into a string. (Loop breaks)
+
+----------
+
+--Loop 3--
+
+1. Use the get function to get only one character. 
+
+2. Check if that character is a '<'
+
+3. If it is not, append the letter to the string (or store to file directly) and then go back to (1)
+
+4. If it is a '<' character, then go to the next character and check if it's a '/'.
+
+5. If not, then record the letter and then go to (1)
+
+6. If it is, then begin checking each character to the string "/tbody"
+
+7. If there is any indication that it's not /tbody, then record the inputs and then return to (1)
+
+8. If the results are /tbody, halt the recording and declare the process finished.
+
+----------

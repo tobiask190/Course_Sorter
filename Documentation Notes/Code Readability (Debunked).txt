@@ -1,0 +1,33 @@
+---HUGE NOTE---
+
+It's impossible to create the correct indentations and newlines because
+	<>
+	<>
+	</>
+Can just as easily be 
+	<>
+	  <>
+	</>
+
+There's no way to tell when to indent...
+---------------
+
+Code Readability is an intemediatary step that won't actually be included in the final product but as a developed research tool to make the code more readable.
+
+When looking at the html source code, either the coders forgot to place newlines or the website removed the newlines. Either way, the table that contains all the courses
+is stuffed onto a line making it nigh unreadable.
+
+To help with readability of that line of relevant code, the code will take that extremely long string as a filestream and output it into another file with newlines and tabs added.
+
+In keeping things simple for research, I'll be manually removing the specific line of code and placing it into a text file like this one. 
+
+---Notes and brainstorm---
+Some <> </> pairings are nested! That means a recursive function is required.
+
+Some <> are not followed by a </> and are instead standalone! That means that the newline rules and tab rules don't apply to this type. 
+
+The program won't know that after several <>'s if there will be corresponding </>'s or not!
+	- In other words, when the first </> pops up, the program can't tell if the </> belongs to the first element or the last!
+
+We can solve this problem by having TWO pointers, one at the beginning index and the other at the last index!
+	- Err... on second thought, what happens if the first pointer encounters a </> before the other one?

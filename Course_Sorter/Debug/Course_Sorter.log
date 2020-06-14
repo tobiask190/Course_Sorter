@@ -1,0 +1,8 @@
+﻿  courseObject.cpp
+C:\Users\Toby Kim\Desktop\Course_Sorter\Course_Sorter\courseObject.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  CourseSorter.cpp
+  phaseOneExtraction.cpp
+  phaseTwoExtraction.cpp
+C:\Users\Toby Kim\Desktop\Course_Sorter\Course_Sorter\phaseTwoExtraction.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Course_Sorter.vcxproj -> C:\Users\Toby Kim\Desktop\Course_Sorter\Debug\Course_Sorter.exe
