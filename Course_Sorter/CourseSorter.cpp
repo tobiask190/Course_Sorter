@@ -32,22 +32,15 @@ int main()
 
 	if (phaseTwoExtraction(htmlTable, courseList)) {
 		cout << "Phase two succesful!" << endl;
-		for (unsigned i = 0; i < -1/*courseList.size()*/; i++) {
-			cout << "Course " << 0 + 1 << endl;
-			courseList.at(0)->printAll();
+		for (unsigned i = 0; i < courseList.size(); i++) {
+			cout << "Course " << i << endl;
+			courseList.at(i)->printAll();
 			cout << endl;
 		}
 	}
 	else {
 		cout << "Something went wrong in phase two." << endl;
 	}
-	//vector<Course> courseObjects = phaseTwoExtraction();
-	//Seriously need to clean up the code for these two 
-
-	//for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
-	//	courseObjects.at(courseIndex).printAll();
-	//	cout << endl;
-	//}
 
 	return 1;
 }

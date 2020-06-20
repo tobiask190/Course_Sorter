@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>;
+#include <string>
 #include <vector>
 #include <iostream>
 
@@ -10,7 +10,7 @@ class Course {
 
 	public:
 		Course();
-		Course(vector<string*>&);
+		Course(vector<string*>&);	//Special case that constructs using custom filtered information.
 		void printAll();
 
 	private:
@@ -24,13 +24,13 @@ class Course {
 
 		string meetingTime;
 		/*
-		vector<string> weekdays;
+		vector<bool> weekdays;
 		//Note that it will be a 24 hour clock
 		//Also it will be 0000 - 2400
 		int startTime;
 		int endTime;
 		
-		string type; 
+		string classType; 
 		string building;
 		string room;
 		
@@ -54,5 +54,11 @@ class Course {
 		int reservedTotal;
 		int reservedLeft;
 		*/
+
+		private: //Helper Constructors
+			void courseTypeConstructor();
+			void meetingTimeConstructor();
+			void classStatusConstructor();
+			void reservedStatusConstructor();
 
 };

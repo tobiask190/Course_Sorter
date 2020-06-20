@@ -1,6 +1,6 @@
 #include "phaseTwoExtraction.h"
 
-bool phaseTwoExtraction(string* htmlTable, vector<Course*> courseList) {
+bool phaseTwoExtraction(string*& htmlTable, vector<Course*>& courseList) {
 
 	vector< vector<string*> > courseString;
 	
@@ -22,13 +22,6 @@ bool phaseTwoExtraction(string* htmlTable, vector<Course*> courseList) {
 		courseList.push_back(new Course(courseString.at(courseIndex)));
 	}
 
-	//Deallocating the string pointers to prevent memory leaks
-	for (unsigned i = 0; i < courseString.size(); i++) {
-		for (unsigned j = 0; j < courseString.at(i).size(); j++) {
-			delete courseString.at(i).at(j);
-		}
-	}
-
 	cout << "Print the stuff" << endl;
 	cin.get();
 	for (unsigned i = 0; i < courseList.size(); i++) {
@@ -37,10 +30,17 @@ bool phaseTwoExtraction(string* htmlTable, vector<Course*> courseList) {
 	}
 	cin.get();
 
+	//Deallocating the string pointers to prevent memory leaks
+	for (unsigned i = 0; i < courseString.size(); i++) {
+		for (unsigned j = 0; j < courseString.at(i).size(); j++) {
+			delete courseString.at(i).at(j);
+		}
+	}
+
 	return true;
 }
 
-bool tableRowExtraction(string* htmlTable, vector< vector<string*> >& courses) {
+bool tableRowExtraction(string*& htmlTable, vector< vector<string*> >& courses) {
 	
 	unsigned courseIndex = 0;
 	string temp;
@@ -80,7 +80,7 @@ bool tagScrubber(vector<string*>& course) {
 	int linkIndex;
 	int linkEnd;
 
-	for (int i = 0; i < course.size(); i++) {
+	for (unsigned i = 0; i < course.size(); i++) {
 
 		if (i == 8) {
 			while (course.at(i)->find('<') != std::string::npos) {
