@@ -10,48 +10,46 @@ using namespace std;
 
 int main()
 {
-	bool boo;
-	//extractCourseLine("input.txt");
-	//No longer needed for testing purposes. Will implement later.
+	cout << "START OF TESTING" << endl << endl;
 
+	cout << "Create string pointer" << endl;
+	string* htmlTable = new string;
 
-	vector< vector<string*> > courses;
-	if (!tableRowExtraction(courses)) { // FIXME: DON'T FORGET TO DEALLOCATE AFTERWARDS!!!
-		cout << "Error occured in tableRowExtraction" << endl;
-		return 0;
+	cout << "Create course pointer table" << endl;
+	vector<Course*> courseList;
+	
+	cout << "Begin phase one extraction" << endl;
+	if (phaseOneExtraction(htmlTable)) {
+		cout << "Success!" << endl;
+	}
+	else {
+		cout << "Something went wrong in phase one." << endl;
 	}
 
-	cout << courses.size() << endl;
+	cout << "Press enter to get enter phase two" << endl;
+	cin.get();
+	//phaseTwoExtraction(htmlTable, courseList);
 
-	for (unsigned courseIndex = 0; courseIndex < courses.size(); courseIndex++) {
-		cout << courseIndex << endl;
-		boo = tagScrubber(courses.at(courseIndex));
+	if (phaseTwoExtraction(htmlTable, courseList)) {
+		cout << "Phase two succesful!" << endl;
+		for (unsigned i = 0; i < -1/*courseList.size()*/; i++) {
+			cout << "Course " << 0 + 1 << endl;
+			courseList.at(0)->printAll();
+			cout << endl;
+		}
 	}
-	cout << "tagScrubber successful!" << endl;
-
-	vector<Course> courseObjects(courses.size());
-
-	for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
-		courseObjects.at(courseIndex) = Course(courses.at(courseIndex));
+	else {
+		cout << "Something went wrong in phase two." << endl;
 	}
+	//vector<Course> courseObjects = phaseTwoExtraction();
+	//Seriously need to clean up the code for these two 
 
-	for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
-		courseObjects.at(courseIndex).printAll();
-		cout << endl;
-	}
-
-	//for (unsigned courseIndex = 0; courseIndex < courses.size(); courseIndex++) {
-	//	cout << "START OF COURSE" << endl;
-	//	for (unsigned elementIndex = 0; elementIndex < courses.at(courseIndex).size(); elementIndex++) {
-	//		cout << *courses.at(courseIndex).at(elementIndex) << endl;
-	//	}
-	//	cout << "END OF COURSE" << endl;
+	//for (unsigned courseIndex = 0; courseIndex < courseObjects.size(); courseIndex++) {
+	//	courseObjects.at(courseIndex).printAll();
+	//	cout << endl;
 	//}
 
-	//for (int i = 0; i < storage.size(); i++) {
-		//cout << *storage.at(i) << endl << endl;
-	//}
-
+	return 1;
 }
 
 

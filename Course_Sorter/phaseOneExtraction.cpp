@@ -2,9 +2,9 @@
 
 //This code will be shortened after extraction code is done. 
 
-bool extractCourseLine(const string& inputFileName) {
+bool phaseOneExtraction(string*& htmlTable) {
 
-	bool located;
+	string inputFileName = "input.txt";
 
 // opening both input and output files
 	ifstream inFS;
@@ -12,49 +12,47 @@ bool extractCourseLine(const string& inputFileName) {
 
 	if (!inFS.is_open()) {
 		
-		cout << "Error opening " << inputFileName;
+		cout << "Error opening " << inputFileName << endl;
 
 		return false;
 	
 	}
 
 	//Phase 1: search until you find the id "table1"
-	located = findTableOne(inFS);
 	
 	//Check to see if id table1 was found at all. 
-	if (located == false) {
+	cout << "Finding Table One" << endl;
+	if (findTableOne(inFS)) {
+		cout << "table1 found" << endl;
+	}
+	else {
 		cout << "table1 not found." << endl;
 		inFS.close();
 		return false;
 	}
-	else {
-		cout << "table1 found" << endl;
-	}
 	
 	//Phase 2: search until you find the <tbody> tag
-	located = false;
-	located = findTBody(inFS);
-
-	if (located == false) {
+	cout << "Finding tbody" << endl;
+	if (findTBody(inFS)) {
+		cout << "tbody found" << endl;
+	}
+	else {
 		cout << "tbody not found.";
 		inFS.close();
 		return false;
 	}
-	else {
-		cout << "tbody found" << endl;
-	}
 
 	//Phase 3: Extract all the text until </tbody> appears
-	if (textExtraction(inFS)) {
+	cout << "Beginning Extraction" << endl;
+	if (textExtraction(inFS, htmlTable)) {
 		cout << "Extraction complete" << endl;
 	}
 	else {
 		cout << "An error occurred" << endl;
+		return false;
 	}
 
-	
-
-	cout << "End of test" << endl;
+	cout << "End of phase one extraction." << endl;
 	inFS.close();
 
 	return true;
@@ -136,7 +134,7 @@ bool findTBody(ifstream& inFS) {
 	return false;
 }
 
-bool textExtraction(ifstream& inFS) {
+bool textExtraction(ifstream& inFS, string*& htmlTable) {
 	/* Helper function to extractCourseLine
 	Continues to extract until </tbody> is 
 	reached. In addition, adds newlines to help
@@ -146,7 +144,7 @@ bool textExtraction(ifstream& inFS) {
 	string tempString;
 
 	// Open output file
-	ofstream outFS;
+	/*ofstream outFS;
 	outFS.open("filteredHTML.txt");
 
 	if (!outFS.is_open()) {
@@ -156,7 +154,7 @@ bool textExtraction(ifstream& inFS) {
 		cout << "Error opening " << "filteredHTML.txt";
 		return false;
 
-	}
+	}*/
 
 	// Begin 
 	while (inFS >> tempChar) {
@@ -165,30 +163,35 @@ bool textExtraction(ifstream& inFS) {
 			getline(inFS, tempString, '>');
 			
 			if (tempString == "/tbody") {
-				outFS.close();
+				//outFS.close();
 				return true;
 			}
 			else if (tempString.find("tr ") != std::string::npos) {
-				outFS << '<' << tempString << '>' << endl;
+				*htmlTable = *htmlTable + '<' + tempString + '>' + '\n';
+				//outFS << '<' << tempString << '>' << endl;
 			}
 			else if (tempString == "/tr") {
-				outFS << '<' << tempString << '>' << endl << endl;
+				*htmlTable = *htmlTable + '<' + tempString + '>' + '\n' + '\n';
+				//outFS << '<' << tempString << '>' << endl << endl;
 			}
 			else if (tempString == "/td") {
-				outFS << '<' << tempString << '>' << endl;
+				*htmlTable = *htmlTable + '<' + tempString + '>' + '\n';
+				//outFS << '<' << tempString << '>' << endl;
 			}
 			else {
-				outFS << '<' << tempString << '>';
+				*htmlTable = *htmlTable + '<' + tempString + '>';
+				//outFS << '<' << tempString << '>';
 			}
 
 		}
 		else {
-			outFS << tempChar;
+			*htmlTable = *htmlTable + tempChar;
+			//outFS << tempChar;
 		}
 
 	}
 
-	outFS.close();
+//	outFS.close();
 
 	return false;
 
