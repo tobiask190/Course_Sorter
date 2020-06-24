@@ -28,7 +28,6 @@ int main()
 
 	cout << "Press enter to get enter phase two" << endl;
 	cin.get();
-	//phaseTwoExtraction(htmlTable, courseList);
 
 	if (phaseTwoExtraction(htmlTable, courseList)) {
 		cout << "Phase two succesful!" << endl;

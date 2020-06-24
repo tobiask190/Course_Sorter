@@ -18,7 +18,7 @@ bool phaseOneExtraction(string*& htmlTable) {
 	
 	}
 
-	//Phase 1: search until you find the id "table1"
+	// Search until you find the id "table1"
 	
 	//Check to see if id table1 was found at all. 
 	cout << "Finding Table One" << endl;
@@ -31,7 +31,7 @@ bool phaseOneExtraction(string*& htmlTable) {
 		return false;
 	}
 	
-	//Phase 2: search until you find the <tbody> tag
+	// Search until you find the <tbody> tag
 	cout << "Finding tbody" << endl;
 	if (findTBody(inFS)) {
 		cout << "tbody found" << endl;

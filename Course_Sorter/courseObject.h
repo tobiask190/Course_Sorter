@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class Course {
 
 	public:
 		Course();
-		Course(vector<string*>&);	//Special case that constructs using custom filtered information.
+		Course(const vector<string*>&);	//Special case that constructs using custom filtered information.
 		void printAll();
 
 	private:
@@ -23,25 +24,24 @@ class Course {
 		int creditHours;
 
 		string meetingTime;
-		/*
+		
 		vector<bool> weekdays;
-		//Note that it will be a 24 hour clock
-		//Also it will be 0000 - 2400
+		////Note that it will be a 24 hour clock
+		////Also it will be 0000 - 2400
 		int startTime;
 		int endTime;
-		
+		//
 		string classType; 
 		string building;
 		string room;
-		
-		//These will be kept as strings.
+		//
+		////These will be kept as strings.
 		string startDate;
 		string endDate;
-		*/
 
 		string instructor;
-		//vector<string> instructors
-		//vector<string> instructorEmails;
+		vector<string> instructors;
+		vector<string> instructorEmails;
 		//Add in email
 		
 		string status;
@@ -56,9 +56,14 @@ class Course {
 		*/
 
 		private: //Helper Constructors
-			void courseTypeConstructor();
-			void meetingTimeConstructor();
-			void classStatusConstructor();
-			void reservedStatusConstructor();
+			void courseTitleSubconstructor(const string&);
+			void meetingTimeSubconstructor(const string&);
+			void instructorSubconstructor(const string&);
+			void classStatusSubconstructor(const string&);
+			void reservedStatusSubconstructor(const string&);
 
+			void weekdaySwitch(const string&, unsigned);
+			void hourSubconstructor(const string&, unsigned);
+			
+			
 };
