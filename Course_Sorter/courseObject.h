@@ -22,8 +22,6 @@ class Course {
 		int sequenceNumber;
 		string courseTitle;
 		int creditHours;
-
-		string meetingTime;
 		
 		vector<bool> weekdays;
 		////Note that it will be a 24 hour clock
@@ -39,21 +37,19 @@ class Course {
 		string startDate;
 		string endDate;
 
-		string instructor;
 		vector<string> instructors;
 		vector<string> instructorEmails;
 		//Add in email
 		
-		string status;
-		string reservedSeats;
-		/*
 		int seatsTotal;
 		int seatsLeft;
+		int waitTotal;
+		int waitLeft;
 		int generalTotal;
 		int generalLeft;
 		int reservedTotal;
 		int reservedLeft;
-		*/
+		
 
 		private: //Helper Constructors
 			void courseTitleSubconstructor(const string&);

@@ -8,10 +8,23 @@ Course::Course() {
 	sequenceNumber = -1;
 	courseTitle = "null";
 	creditHours = -1;
-	meetingTime = "null";
-	instructor = "null";
-	status = "null";
-	reservedSeats = "null";
+
+	startTime = -1;
+	endTime = -1;
+	classType = "";
+	building = "";
+	room = "";
+	startDate = "";
+	endDate = "";
+	
+	seatsTotal = -1;
+	seatsLeft = -1;
+	waitTotal = -1;
+	waitLeft = -1;
+	generalTotal = -1;
+	generalLeft = -1;
+	reservedLeft = -1;
+	reservedTotal = -1;
 }
 
 Course::Course(const vector<string*>& course) {
@@ -23,10 +36,9 @@ Course::Course(const vector<string*>& course) {
 	courseTitleSubconstructor(*course.at(5));
 	creditHours = stoi(*course.at(6));
 	meetingTimeSubconstructor(*course.at(7));
-	instructor = *course.at(8);
 	instructorSubconstructor(*course.at(8));
-	status = *course.at(9);
-	reservedSeats = *course.at(10);
+	classStatusSubconstructor(*course.at(9));
+	reservedStatusSubconstructor(*course.at(10));
 }
 
 void Course::printAll() {
@@ -57,10 +69,15 @@ void Course::printAll() {
 	for (unsigned i = 0; i < instructors.size(); i++) {
 		cout << instructors.at(i) << ' ' << instructorEmails.at(i) << endl;
 	}
-	cout << "Status: " << status << endl;
-	cout << "Reserved Seats: " << reservedSeats << endl;
+	cout << "Seats: " << seatsLeft << " / " << seatsTotal << endl;
+	cout << "Waitlist: " << waitLeft << " / " << waitTotal << endl;
+
+	cout << "General: " << generalLeft << " / " << generalTotal << endl;
+	cout << "Reserved: " << reservedLeft << " / " << reservedTotal << endl;
+
 }
 
+// Sub Constructors and constructor helpers
 void Course::courseTitleSubconstructor(const string& titleString) {
 	unsigned endIndex = -1;
 
@@ -177,11 +194,57 @@ void Course::instructorSubconstructor(const string& instructorString) {
 	}
 }
 
-void Course::classStatusSubconstructor(const string& ) {	
+void Course::classStatusSubconstructor(const string& classStatusString) {	
 	
+	vector<string> stringTemps;
+
+	for (unsigned i = 0; i < classStatusString.size(); i++) {
+		if (isdigit(classStatusString.at(i))) {
+			stringTemps.push_back(classStatusString.substr(i));
+			while (isdigit(classStatusString.at(i))) {
+				i++;
+			}
+		}
+	}
+
+	seatsLeft = stoi(stringTemps.at(0));
+	seatsTotal = stoi(stringTemps.at(1));
+	if (stringTemps.size() > 2) {
+		waitLeft = stoi(stringTemps.at(2));
+		waitTotal = stoi(stringTemps.at(3));
+	}
+	else {
+		waitLeft = 0;
+		waitTotal = 0;
+	}
+
 }
 
-void Course::reservedStatusSubconstructor(const string&) {}
+void Course::reservedStatusSubconstructor(const string& resservedString) {
+	vector<string> stringTemps;
+
+	for (unsigned i = 0; i < resservedString.size(); i++) {
+		if (isdigit(resservedString.at(i))) {
+			stringTemps.push_back(resservedString.substr(i));
+			while (isdigit(resservedString.at(i))) {
+				i++;
+			}
+		}
+	}
+
+	if (stringTemps.size() > 2) {
+		generalLeft = stoi(stringTemps.at(0));
+		generalTotal = stoi(stringTemps.at(1));
+		reservedLeft = stoi(stringTemps.at(2));
+		reservedTotal = stoi(stringTemps.at(3));
+	}
+	else {
+		generalLeft = seatsLeft;
+		generalTotal = seatsTotal;
+		reservedLeft = 0;
+		reservedTotal = 0;
+	}
+}
 
 void Course::weekdaySwitch(const string& meetingString, unsigned index) {
 	switch (meetingString.at(index)) {
