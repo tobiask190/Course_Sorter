@@ -63,3 +63,5 @@ class Course {
 			
 			
 };
+
+bool fullCourseExtraction(vector<Course*>&);

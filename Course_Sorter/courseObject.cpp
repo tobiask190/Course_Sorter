@@ -1,4 +1,6 @@
 #include "courseObject.h"
+#include "phaseOneExtraction.h"
+#include "phaseTwoExtraction.h"
 
 Course::Course() {
 	courseReferenceNumber = -1;
@@ -306,4 +308,22 @@ void Course::hourSubconstructor(const string& meetingString, unsigned startIndex
 		endTime = stoi(endString) + 1200;
 	}
 	
+}
+
+
+bool fullCourseExtraction(vector<Course*>& courseList) {
+	
+	string* htmlTable = new string;
+
+	if (!phaseOneExtraction(htmlTable)) {
+		cout << "Something went wrong in phase one." << endl;
+		return false;
+	}
+
+	if (!phaseTwoExtraction(htmlTable, courseList)) {
+		cout << "Something went wrong in phase two" << endl;
+		return false;
+	}
+
+	return 1;
 }

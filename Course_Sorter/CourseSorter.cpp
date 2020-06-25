@@ -2,46 +2,27 @@
 //
 
 #include <iostream>
-#include "phaseOneExtraction.h"
-#include "phaseTwoExtraction.h"
 #include "courseObject.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	cout << "START OF TESTING" << endl << endl;
-
-	cout << "Create string pointer" << endl;
-	string* htmlTable = new string;
-
-	cout << "Create course pointer table" << endl;
-	vector<Course*> courseList;
 	
-	cout << "Begin phase one extraction" << endl;
-	if (phaseOneExtraction(htmlTable)) {
-		cout << "Success!" << endl;
-	}
-	else {
-		cout << "Something went wrong in phase one." << endl;
-	}
 
-	cout << "Press enter to get enter phase two" << endl;
-	cin.get();
+	//vector<Course*> addedCourses;
+	//if (fullCourseExtraction(addedCourses) == true) {
+	//	for (unsigned i = 0; i < addedCourses.size(); i++) {
+	//		cout << "Course " << i + 1 << endl;
+	//		addedCourses.at(i)->printAll();
+	//		cout << endl;
+	//	}
+	//}
+	//else {
+	//	cout << "Something went wrong" << endl;
+	//}
 
-	if (phaseTwoExtraction(htmlTable, courseList)) {
-		cout << "Phase two succesful!" << endl;
-		for (unsigned i = 0; i < courseList.size(); i++) {
-			cout << "Course " << i << endl;
-			courseList.at(i)->printAll();
-			cout << endl;
-		}
-	}
-	else {
-		cout << "Something went wrong in phase two." << endl;
-	}
-
-	return 1;
+	return 0;
 }
 
 

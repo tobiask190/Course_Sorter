@@ -6,7 +6,7 @@ bool phaseOneExtraction(string*& htmlTable) {
 
 	string inputFileName = "input.txt";
 
-// opening both input and output files
+	// opening both input and output files
 	ifstream inFS;
 	inFS.open(inputFileName.c_str());
 
@@ -21,38 +21,25 @@ bool phaseOneExtraction(string*& htmlTable) {
 	// Search until you find the id "table1"
 	
 	//Check to see if id table1 was found at all. 
-	cout << "Finding Table One" << endl;
-	if (findTableOne(inFS)) {
-		cout << "table1 found" << endl;
-	}
-	else {
+	if (!findTableOne(inFS)) {
 		cout << "table1 not found." << endl;
 		inFS.close();
 		return false;
 	}
 	
 	// Search until you find the <tbody> tag
-	cout << "Finding tbody" << endl;
-	if (findTBody(inFS)) {
-		cout << "tbody found" << endl;
-	}
-	else {
+	if (!findTBody(inFS)) {
 		cout << "tbody not found.";
 		inFS.close();
 		return false;
 	}
 
 	//Phase 3: Extract all the text until </tbody> appears
-	cout << "Beginning Extraction" << endl;
-	if (textExtraction(inFS, htmlTable)) {
-		cout << "Extraction complete" << endl;
-	}
-	else {
+	if (!textExtraction(inFS, htmlTable)) {
 		cout << "An error occurred" << endl;
 		return false;
 	}
 
-	cout << "End of phase one extraction." << endl;
 	inFS.close();
 
 	return true;
