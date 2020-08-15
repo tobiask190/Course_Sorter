@@ -3,27 +3,27 @@
 
 #include <iostream>
 #include "courseObject.h"
-#include "include/SDL.h"
+//#include "include/SDL.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		cout << "SDL could not initialise!" << endl;
-	}
+	//if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+	//	cout << "SDL could not initialise!" << endl;
+	//}
 
-	//vector<Course*> addedCourses;
-	//if (fullCourseExtraction(addedCourses) == true) {
-	//	for (unsigned i = 0; i < addedCourses.size(); i++) {
-	//		cout << "Course " << i + 1 << endl;
-	//		addedCourses.at(i)->printAll();
-	//		cout << endl;
-	//	}
-	//}
-	//else {
-	//	cout << "Something went wrong" << endl;
-	//}
+	vector<Course*> addedCourses;
+	if (fullCourseExtraction(addedCourses) == true) {
+		for (unsigned i = 0; i < addedCourses.size(); i++) {
+			cout << "Course " << i + 1 << endl;
+			addedCourses.at(i)->printAll();
+			cout << endl;
+		}
+	}
+	else {
+		cout << "Something went wrong" << endl;
+	}
 
 	return 0;
 }
