@@ -1,2 +1,0 @@
-C:\Users\Casual\Documents\GitHub\Course_Sorter\Debug\Course_Sorter.exe
-C:\Users\Casual\Documents\GitHub\Course_Sorter\Debug\Course_Sorter.pdb
