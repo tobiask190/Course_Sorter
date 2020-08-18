@@ -147,15 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="courseObject.cpp" />
-    <ClCompile Include="CourseSorter.cpp" />
-    <ClCompile Include="phaseOneExtraction.cpp" />
-    <ClCompile Include="phaseTwoExtraction.cpp" />
+    <ClInclude Include="Extraction_Code\courseObject.h" />
+    <ClInclude Include="Extraction_Code\phaseOneExtraction.h" />
+    <ClInclude Include="Extraction_Code\phaseTwoExtraction.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="courseObject.h" />
-    <ClInclude Include="phaseOneExtraction.h" />
-    <ClInclude Include="phaseTwoExtraction.h" />
+    <ClCompile Include="Extraction_Code\courseObject.cpp" />
+    <ClCompile Include="Extraction_Code\CourseSorter.cpp" />
+    <ClCompile Include="Extraction_Code\phaseOneExtraction.cpp" />
+    <ClCompile Include="Extraction_Code\phaseTwoExtraction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
