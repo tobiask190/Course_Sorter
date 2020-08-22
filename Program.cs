@@ -1,12 +1,25 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Terminal.Gui;
 
 namespace Course_Sorter
 {
     class Program
     {
-        static void Main(string[] args)
+
+
+        static int Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Setup course object information before the Init.
+
+            Application.Init(); 
+
+            Example.runExamples();
+
+            Application.Run();
+            return 0;
         }
+
     }
+
 }

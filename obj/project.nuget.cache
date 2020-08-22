@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KoBhFPGrshHQyqOluvzLw3LyYzvPCMijpir4H9CWqF5Nx0nxko/lt10aTWPhs1T5zaBb2zV42KITYcnz/X+DJA==",
+  "dgSpecHash": "M1USpvUaiOcNoxoG47SzSpvDwV28ACNspfJGDmr6L3X8aYoX7hnaBMcgMI6J4S5MtAgC2ObAZ6SgdWXHEdYVfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\Course_Sorter.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Casual\\.nuget\\packages\\nstack.core\\0.14.0\\nstack.core.0.14.0.nupkg.sha512",
+    "C:\\Users\\Casual\\.nuget\\packages\\terminal.gui\\0.81.0\\terminal.gui.0.81.0.nupkg.sha512"
+  ],
   "logs": []
 }

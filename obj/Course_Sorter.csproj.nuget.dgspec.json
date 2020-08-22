@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\Course_Sorter.csproj": {}
+    "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\Course_Sorter.csproj": {
+    "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\Course_Sorter.csproj",
+        "projectUniqueName": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj",
         "projectName": "Course_Sorter",
-        "projectPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\Course_Sorter.csproj",
+        "projectPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj",
         "packagesPath": "C:\\Users\\Casual\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter\\obj\\",
+        "outputPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Casual\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Terminal.Gui": {
+              "target": "Package",
+              "version": "[0.81.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

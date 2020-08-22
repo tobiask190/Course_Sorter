@@ -1,0 +1,16 @@
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.exe
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.deps.json
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.runtimeconfig.json
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.runtimeconfig.dev.json
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.dll
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.pdb
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\NStack.dll
+C:\Users\Casual\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Terminal.Gui.dll
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.AssemblyInfoInputs.cache
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.AssemblyInfo.cs
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.csproj.CoreCompileInputs.cache
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.csproj.CopyComplete
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.dll
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.pdb
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.genruntimeconfig.cache
+C:\Users\Casual\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.csprojAssemblyReference.cache
