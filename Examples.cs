@@ -14,11 +14,11 @@ namespace Course_Sorter
 
         public static void runExamples()
         {
-            createQueries();
+            //createQueries();
 
             //createLabels();
 
-            //createMenu();
+            createMenu();
 
             // Creates a writable textbox
             /*var newview = new View();

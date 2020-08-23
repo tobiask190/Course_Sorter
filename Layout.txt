@@ -1,0 +1,32 @@
+﻿== Top Menu ===================================================================================================================
+--------------------------------------------------------------------------------------------------------------------------------
+         |     SUN     |     MON     |     TUE     |     WED     |     THR     |     FRI     |     SAT     H|     SEARCH      H| 
+         |                                                                                                 H| Class Number:   H|
+ 1:00 PM | PHYS101   |                                                                                     H| text_input      H|
+         | LABRATORY |                                                                                     H| CRN:            H|
+         | |         |                                                                                     H| txt_input       H|
+ 1:30 PM | |         |    BIOL021  |                                                                       H|----------------- |
+         | |         |    DISCUSSION                                                                       H|                 H|
+         | |         |    |        |                                                                       H| PHYS101       | H|
+ 2:00 PM | |         |    |        |                                                                       H| LECTURE       | H|
+         | |         |    |        |                                                                       H| smtWrFs       | H|
+         | |         |    |________|                                                                       H| S: 10:00 AM   | H|
+ 2:30 PM | |         |    PHYS101  |                                                                       H| F: 12:50 PM___| H|
+         | |         |    DISCUSSION                                                                       H|                 H|
+         | |         |    |        |                                                                       H| BIOL021       | H|
+ 3:00 PM | |         |    |        |                                                                       H| LECTURE       | H|
+         | |         |    |        |                                                                       H| smTwRfs       | H|
+         | |         |    |________|                                                                       H| S: 12:00 PM   | H|
+ 3:30 PM | |         |                                                                                     H| F: 01:20 PM___| H|
+         | |         |                                                                                     H|                 H|
+         | |_________|                                                                                     H| ANTH010       | H|
+ 4:00 PM |                                                                                                 H| LECTURE       | H|
+         |																				                   H| smTwRfs       | H|
+--------------------------------------------------------------------------------------------------------------------------------	 
+		 
+		 
+Notes
+- The letters will not be lowercased but highlighted
+- The 'H' character represents a scroll bar
+- In the final product, discussions, labs, everything not lectures can be added before lectures. 
+  - Though linked courses will be an added functionality
