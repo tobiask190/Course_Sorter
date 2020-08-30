@@ -113,21 +113,42 @@ namespace Course_Sorter
 
             // Add both menu and win in a single call
         }
-        static void createScroll()
+        public static void createScroll()
         {
-            Rect frame = new Rect(5, 5, 20, 2);
+            //Rect frame = new Rect(5, 5, 20, 2);
 
-            ScrollView scroll1 = new ScrollView(frame);
-            ScrollBarView bar1 = new ScrollBarView(frame, 5, 5, true);
-            var label = new Label(5, scroll1.ContentOffset.Y, "Hello");
-            var label2 = new Label(5, scroll1.ContentOffset.Y-1, "Hello2");
-            var label3 = new Label(5, scroll1.ContentOffset.Y-2, "Hello3");
-            var label4 = new Label(5, scroll1.ContentOffset.Y-3, "Hello4");
-            var label5 = new Label(5, scroll1.ContentOffset.Y-4, "Hello5");
-            var label6 = new Label(5, scroll1.ContentOffset.Y-5, "Hello6");
-            scroll1.ShowVerticalScrollIndicator = true;
-            scroll1.Add(label, label2, label3, label4, label5, label6);
-            Application.Top.Add(scroll1);
+            //ScrollView scroll1 = new ScrollView(frame);
+            //ScrollBarView bar1 = new ScrollBarView(frame, 5, 5, true);
+            //var label = new Label(5, scroll1.ContentOffset.Y, "Hello");
+            //var label2 = new Label(5, scroll1.ContentOffset.Y-1, "Hello2");
+            //var label3 = new Label(5, scroll1.ContentOffset.Y-2, "Hello3");
+            //var label4 = new Label(5, scroll1.ContentOffset.Y-3, "Hello4");
+            //var label5 = new Label(5, scroll1.ContentOffset.Y-4, "Hello5");
+            //var label6 = new Label(5, scroll1.ContentOffset.Y-5, "Hello6");
+            //scroll1.ShowVerticalScrollIndicator = true;
+            //scroll1.Add(label, label2, label3, label4, label5, label6);
+            //Application.Top.Add(scroll1);
+
+
+            var label1 = new Label("Hello 1");
+            var label2 = new Label("Hello 2");
+            var label3 = new Label("Hello 3");
+            var label4 = new Label("Hello 4");
+            var label5 = new Label("Hello 5");
+            var label6 = new Label("Hello 6");
+            var label7 = new Label("Hello 7");
+
+            var scrollView = new ScrollView(new Rect(2, 2, 10, 5))
+            {
+                ContentSize = new Size(10, 10),
+                ContentOffset = new Point(-1, -1),
+                ShowVerticalScrollIndicator = true,
+                ShowHorizontalScrollIndicator = false
+            };
+
+            scrollView.Add(label1, label2, label3, label4, label5, label6, label7);
+            Application.Top.Add(scrollView);
+            
         }
         static void updateScroll()
         {

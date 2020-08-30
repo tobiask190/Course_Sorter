@@ -27,6 +27,7 @@
 using Terminal.Gui;
 using System;
 using Mono.Terminal;
+using Course_Sorter;
 
 class Demo
 {
@@ -100,12 +101,12 @@ class Demo
 
 	static void ShowEntries(View container)
 	{
-		var scrollView = new ScrollView(new Rect(50, 10, 20, 8))
+		var scrollView = new ScrollView(new Rect(50, 10, 10, 8))
 		{
-			ContentSize = new Size(100, 100),
-			ContentOffset = new Point(-1, -1),
+			ContentSize = new Size(10, 10),
+			ContentOffset = new Point(1, 1),
 			ShowVerticalScrollIndicator = true,
-			ShowHorizontalScrollIndicator = true
+			ShowHorizontalScrollIndicator = false
 		};
 
 		scrollView.Add(new Box10x(0, 0));
@@ -241,10 +242,13 @@ class Demo
 			ml.Text = $"Mouse: ({me.X},{me.Y}) - {me.Flags} {count++}";
 		};
 
-		win.Add(ml);
+		//var newView = new View();
+		//Testing.createScroll(newView);
 
-		top.Add(win, menu);
-		top.Add(menu);
+		//win.Add(newView);
+
+		//top.Add(win, menu);
+		//top.Add(menu);
 		Application.Run();
 	}
 }
