@@ -60,19 +60,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Casual\\.nuget\\packages\\": {}
+    "C:\\Users\\alexm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj",
+      "projectUniqueName": "C:\\Users\\alexm\\Source\\Repos\\Course_Sorter\\Course_Sorter.csproj",
       "projectName": "Course_Sorter",
-      "projectPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\Course_Sorter.csproj",
-      "packagesPath": "C:\\Users\\Casual\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Casual\\Documents\\GitHub\\Course_Sorter\\obj\\",
+      "projectPath": "C:\\Users\\alexm\\Source\\Repos\\Course_Sorter\\Course_Sorter.csproj",
+      "packagesPath": "C:\\Users\\alexm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexm\\Source\\Repos\\Course_Sorter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Casual\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alexm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -116,7 +116,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

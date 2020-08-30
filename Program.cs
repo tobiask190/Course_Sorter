@@ -12,10 +12,10 @@ namespace Course_Sorter
         {
             // Setup course object information before the Init.
 
-            Application.Init(); 
+            Application.Init();
 
-            Example.runExamples();
-
+            new MainScreen().Start();
+            
             Application.Run();
             return 0;
         }
