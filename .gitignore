@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Course_Reader/bin/Debug/netcoreapp3.1
+/.vs/Course_Sorter/config
+/Course_Loader/bin/Debug/netcoreapp3.1
+/Course_Loader/obj
+/Course_Reader/obj
