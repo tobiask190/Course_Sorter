@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NStack;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Security.Cryptography.X509Certificates;
@@ -113,6 +114,20 @@ namespace Course_Sorter
 
             // Add both menu and win in a single call
         }
+
+        class Label10 : View
+        {
+            public Label10(int x, int y) : base(new Rect(x, y, 10, 1)) 
+            {
+            }
+            public override void Redraw(Rect region)
+            {
+                Driver.SetAttribute(ColorScheme.Focus);
+                Driver.AddStr("HI");
+
+            }
+        }
+
         public static void createScroll()
         {
             //Rect frame = new Rect(5, 5, 20, 2);
@@ -130,7 +145,7 @@ namespace Course_Sorter
             //Application.Top.Add(scroll1);
 
 
-            var label1 = new Label("Hello 1");
+            var label1 = new Label(new Rect(1, 1, 1, 1), "Hello 1");
             var label2 = new Label("Hello 2");
             var label3 = new Label("Hello 3");
             var label4 = new Label("Hello 4");
@@ -146,7 +161,7 @@ namespace Course_Sorter
                 ShowHorizontalScrollIndicator = false
             };
 
-            scrollView.Add(label1, label2, label3, label4, label5, label6, label7);
+            scrollView.Add(new Label10(1,1));
             Application.Top.Add(scrollView);
             
         }

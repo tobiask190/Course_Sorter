@@ -101,19 +101,19 @@ class Demo
 
 	static void ShowEntries(View container)
 	{
-		var scrollView = new ScrollView(new Rect(50, 10, 10, 8))
+		var scrollView = new ScrollView(new Rect(50, 10, 12, 4))
 		{
-			ContentSize = new Size(10, 10),
-			ContentOffset = new Point(1, 1),
+			ContentSize = new Size(12, 20),
+			ContentOffset = new Point(0, 0),
 			ShowVerticalScrollIndicator = true,
 			ShowHorizontalScrollIndicator = false
 		};
 
-		scrollView.Add(new Box10x(0, 0));
+		scrollView.Add(new Box10x(1, 1));
 		//scrollView.Add (new Filler (new Rect (0, 0, 40, 40)));
 
 		// This is just to debug the visuals of the scrollview when small
-		var scrollView2 = new ScrollView(new Rect(72, 10, 3, 3))
+		var scrollView2 = new ScrollView(new Rect(72, 10, 10, 10))
 		{
 			ContentSize = new Size(100, 100),
 			ShowVerticalScrollIndicator = true,
@@ -172,7 +172,7 @@ class Demo
 				"This is so cool"
 			}),
 			scrollView,
-			//scrollView2,
+			scrollView2,
 			new Button("Ok") { X = 3, Y = 19 },
 			new Button("Cancel") { X = 10, Y = 19 },
 			progress,
@@ -242,13 +242,13 @@ class Demo
 			ml.Text = $"Mouse: ({me.X},{me.Y}) - {me.Flags} {count++}";
 		};
 
-		//var newView = new View();
-		//Testing.createScroll(newView);
+        //var newView = new View();
+        Testing.createScroll();
 
-		//win.Add(newView);
+       // win.Add(newView);
 
-		//top.Add(win, menu);
-		//top.Add(menu);
-		Application.Run();
+        //top.Add(win, menu);
+        //top.Add(menu);
+        Application.Run();
 	}
 }

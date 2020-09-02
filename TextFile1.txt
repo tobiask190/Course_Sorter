@@ -1,0 +1,18 @@
+﻿Note:
+
+ScrollView(Rect())
+
+Rect(x, y, width, height) - Determines the location of the scroll. Determines the size of the window
+
+{
+
+	ContentSize = new Size(width, height);
+	ContentOffset = new Point(x, y);
+	// And the scrollbar indicators
+
+}
+
+ContentSize - Gives the "full size" of the entire scroll bar 
+ContentOffset - Not sure what it does for the y-component, but it shifts the content
+	left or right to the top left of the Rect(). The content is cut off if it is offset
+	beyond the bounds of the Rect(). 
