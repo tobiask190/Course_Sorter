@@ -1,0 +1,15 @@
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.exe
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.csprojAssemblyReference.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.AssemblyInfoInputs.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.AssemblyInfo.cs
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.deps.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.runtimeconfig.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.runtimeconfig.dev.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\Course_Extractor.pdb
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.csproj.CoreCompileInputs.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.csproj.CopyComplete
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.pdb
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\Course_Extractor\obj\Debug\netcoreapp3.1\Course_Extractor.genruntimeconfig.cache

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "klhFbE63s9sPbUXENuoXPux0+WoJpCgf9bNUCHWU2AXVSnMve3FcqjllVqghgI1yZdbttFETMi03+vvNNyRGzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Toby Kim\\Documents\\GitHub\\Course_Sorter\\Course_Extractor\\Course_Extractor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Toby Kim\\.nuget\\packages\\htmlagilitypack\\1.11.24\\htmlagilitypack.1.11.24.nupkg.sha512"
+  ],
+  "logs": []
+}
