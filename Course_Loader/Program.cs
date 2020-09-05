@@ -1,28 +1,14 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
 namespace Course_Loader {
-    enum Hours {
-        _0800, _0830,
-        _0900, _0930,
-        _1000, _1030,
-        _1100, _1130,
-        _1200, _1230,
-        _1300, _1330,
-        _1400, _1430,
-        _1500, _1530,
-        _1600, _1630,
-        _1700, _1730,
-        _1800, _1830,
-        _1900, _1930,
-        _2000, _2030,
-    }
-    enum SectionType {
+    public enum SectionType {
         Unknown,
         Lecture,
         Discussion,
@@ -48,7 +34,20 @@ namespace Course_Loader {
         Additional_Lecture,
         XXX
     }
-    class Course {
+    public struct Seats {
+        int generalOpen;
+        int generalMax;
+
+        int generalWaitlistOpen;
+        int generalWaitlistMax;
+
+        int reservedOpen;
+        int reservedMax;
+
+        int reservedWaitlistOpen;
+        int reservedWaitlistMax;
+    }
+    public class Course {
         public int crn;
         public string subject;
         public string courseNumber;
@@ -57,17 +56,17 @@ namespace Course_Loader {
         public string units;
         public HashSet<DayOfWeek> days;
 
-        //Convert this to Hours later?
-        public string time;
+        public int startTime;
+        public int endTime;
 
-        public SectionType type;
+        public SectionType sectionType;
         public string building;
         public string room;
         public string startDate;
         public string endDate;
         public string instructor;
-        public string available;
-        public string reserved;
+
+        public Seats seats;
     }
     class Program {
         static void Main(string[] args) {
@@ -75,12 +74,12 @@ namespace Course_Loader {
 
             HashSet<Course> courses = new HashSet<Course>();
 
-            foreach(var f in Directory.GetFiles(@"C:\Users\alexm\source\repos\Course_Sorter\Course_Reader\bin\Debug\netcoreapp3.1", "*.html")) {
+            foreach (var f in Directory.GetFiles(@"C:\Users\alexm\source\repos\Course_Sorter\Course_Reader\bin\Debug\netcoreapp3.1", "*.html")) {
                 HtmlDocument d = new HtmlDocument();
                 d.LoadHtml(File.ReadAllText(f).Replace("&nbsp;", ""));
                 var table = d.GetElementbyId("table1").SelectSingleNode("./tbody");
                 //Each entry is a <tr> stored in the <tbody> with attributes specified in <td>
-                foreach(var courseRow in table.ChildNodes) {
+                foreach (var courseRow in table.ChildNodes) {
                     int crn = 0;
                     string subject = null;
                     string courseNumber = null;
@@ -89,84 +88,96 @@ namespace Course_Loader {
                     string units = null;
                     HashSet<DayOfWeek> days = null;
 
-                    //Convert this to Hours later?
-                    string time = null;
-                    
+                    int startTime = 0;
+                    int endTime = 0;
+
                     SectionType type = 0;
                     string building = null;
                     string room = null;
                     string startDate = null;
                     string endDate = null;
                     string instructor = null;
-                    string available = null;
-                    string reserved = null;
-                        foreach (var td in courseRow.SelectNodes("./td")) {
-                            string text = td.InnerText;
-                            switch (td.GetAttributeValue("data-property", null)) {
-                                case "courseReferenceNumber":
-                                    crn = int.Parse(text);
-                                    break;
-                                case "subject":
-                                    subject = text;
-                                    break;
-                                case "courseNumber":
-                                    courseNumber = text;
-                                    break;
-                                case "sequenceNumber":
-                                    sequenceNumber = text;
-                                    break;
-                                case "courseTitle":
-                                    title = text;
-                                    break;
-                                case "creditHours":
-                                    units = text;
-                                    break;
-                                case "meetingTime":
-                                    var meeting = td.FirstChild;
+                    Seats seats = new Seats();
+                    foreach (var td in courseRow.SelectNodes("./td")) {
+                        string text = td.InnerText;
+                        switch (td.GetAttributeValue("data-property", null)) {
+                            case "courseReferenceNumber":
+                                crn = int.Parse(text);
+                                break;
+                            case "subject":
+                                subject = text;
+                                break;
+                            case "courseNumber":
+                                courseNumber = text;
+                                break;
+                            case "sequenceNumber":
+                                sequenceNumber = text;
+                                break;
+                            case "courseTitle":
+                                title = text;
+                                break;
+                            case "creditHours":
+                                units = text;
+                                break;
+                            case "meetingTime":
+                                var meeting = td.FirstChild;
 
-                                    //Some courses (ARC) have no meeting time
-                                    if (meeting == null) {
-                                        continue;
-                                    }
+                                //Some courses (ARC) have no meeting time
+                                if (meeting == null) {
+                                    continue;
+                                }
 
 
-                                    text = meeting.FirstChild.FirstChild.InnerText;
-                                    if (text == "None") {
-                                        days = new HashSet<DayOfWeek>();
-                                    } else {
-                                        days = text.Split(",").Select(day => Enum.Parse<DayOfWeek>(day)).ToHashSet();
-                                    }
+                                text = meeting.FirstChild.FirstChild.InnerText;
+                                if (text == "None") {
+                                    days = new HashSet<DayOfWeek>();
+                                } else {
+                                    days = text.Split(",").Select(day => Enum.Parse<DayOfWeek>(day)).ToHashSet();
+                                }
 
-                                    time = meeting.ChildNodes[1].InnerText;
+                                var timeStr = meeting.ChildNodes[1].InnerText.Split('-');
+                                var (startStr, endStr) = (timeStr[0].Trim(), timeStr[1].Trim());
 
-                                    text = meeting.ChildNodes[2].InnerText;
+                                if (startStr.Any()) {
+                                    var dt = DateTime.ParseExact(startStr, "hh:mm  tt", CultureInfo.InvariantCulture);
+                                    startTime = (100 * dt.Hour) + dt.Minute;
+                                }
 
-                                    type = Enum.Parse<SectionType>(text.Substring(text.IndexOf(':') + 1).Replace(" ", "_"));
+                                if (endStr.Any()) {
+                                    var dt = DateTime.ParseExact(endStr, "hh:mm  tt", CultureInfo.InvariantCulture);
+                                    endTime = (100 * dt.Hour) + dt.Minute;
+                                }
 
-                                    text = meeting.ChildNodes[3].InnerText;
-                                    building = text.Substring(text.IndexOf(':') + 1);
+                                text = meeting.ChildNodes[2].InnerText;
 
-                                    text = meeting.ChildNodes[4].InnerText;
-                                    room = text.Substring(text.IndexOf(':') + 1);
+                                type = Enum.Parse<SectionType>(text.Substring(text.IndexOf(':') + 1).Replace(" ", "_"));
 
-                                    startDate = meeting.ChildNodes[5].InnerText;
-                                    endDate = meeting.ChildNodes[6].InnerText;
-                                    break;
-                                case "instructor":
-                                    instructor = text;
-                                    break;
-                                case "status":
-                                    available = text;
-                                    break;
-                                case "reserved":
-                                    reserved = text;
-                                    break;
-                                case null:
-                                    //End of <tr>
-                                    break;
-                            }
+                                text = meeting.ChildNodes[3].InnerText;
+                                building = text.Substring(text.IndexOf(':') + 1);
+
+                                text = meeting.ChildNodes[4].InnerText;
+                                room = text.Substring(text.IndexOf(':') + 1);
+
+                                startDate = meeting.ChildNodes[5].InnerText.Replace(" Start Date: ", null);
+                                endDate = meeting.ChildNodes[6].InnerText.Replace(" End Date: ", null);
+                                break;
+                            case "instructor":
+                                instructor = text;
+                                break;
+                            case "status":
+                                //available = text;
+                                break;
+                            case "reservedSeats":
+                                if(text.Any()) {
+                                    Console.WriteLine(text);
+                                }
+                                break;
+                            case null:
+                                //End of <tr>
+                                break;
                         }
-                    
+                    }
+
                     courses.Add(new Course() {
                         crn = crn,
                         subject = subject,
@@ -175,15 +186,15 @@ namespace Course_Loader {
                         title = title,
                         units = units,
                         days = days,
-                        time = time,
-                        type = type,
+                        startTime = startTime,
+                        endTime = endTime,
+                        sectionType = type,
                         building = building,
                         room = room,
                         startDate = startDate,
                         endDate = endDate,
                         instructor = instructor,
-                        available = available,
-                        reserved = reserved
+                        seats = seats
 
                     });
                 }
