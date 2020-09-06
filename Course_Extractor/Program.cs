@@ -75,37 +75,52 @@ namespace Course_Extractor
         
         static void fileExtraction(string file) // Change back to List<Course> after finishing
         {
+            // Course List
+            List<Course> courseList = new List<Course>();
+
+            // Open the file and load contents
             string fileContents = File.ReadAllText(file);
             HtmlDocument htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(fileContents);
-            int i = 0;
-            //Console.Write(htmlDoc.DocumentNode.OuterHtml + "/n/n/n/n/n");
-            //Console.Write("Hi " + (htmlDoc.GetElementbyId("table1")).OuterHtml);
 
+            // Get only the html table document
             var table = htmlDoc.GetElementbyId("table1");
 
-            foreach (var row in table.SelectNodes("//tr"))
+            int i = 0;
+
+            foreach (var row in table.SelectNodes(".//tr").Skip(1))
             {
-                // Create a list of the strings that correspond to an individual element
-                Console.WriteLine(i);
+                List<string> courseElements = new List<string>();
+                Console.Write("Course: " + i + '\n');
                 i++;
 
-                foreach (var cell in row.SelectNodes("//td"))
+                int j = 0;
+                foreach (var cell in row.ChildNodes)
                 {
-                    // Adds in the element (string) here and doesn't do anything else. Constructor will do heavy lifting
-                    Console.Write("hi");
-                    
-                    //Console.WriteLine("cell: " + cell.InnerText);
+                    //Adds in the element(string) here and doesn't do anything else. Constructor will do heavy lifting
+                    if (j < 11)
+                    {
+                        courseElements.Add(cell.InnerText);
+                    }
+                    j++;
                 }
-                
-                // The course construction goes here. The constructor will convert much of the elements by itself 
-                // Will involve case statements.
-                Console.Write('\n');
-            }
 
+                // Create course and append it to the course list. 
+                Course test = new Course(courseElements);
+                Console.WriteLine("Hello");
+                test.printElements();
+
+                //foreach (var element in courseElements)
+                //{
+                //    Console.WriteLine("Element: " + element);
+                //}
+
+                Console.Write('\n');
+
+            }
         }
 
-        public static void processHTML(string fileName)
+            public static void processHTML(string fileName)
         {
 
         }
