@@ -30,3 +30,21 @@ C:\Users\alexm\Source\Repos\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.
 C:\Users\alexm\Source\Repos\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.dll
 C:\Users\alexm\Source\Repos\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.pdb
 C:\Users\alexm\Source\Repos\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.genruntimeconfig.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.csprojAssemblyReference.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.AssemblyInfoInputs.cache
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.AssemblyInfo.cs
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.pdb
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.exe
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.deps.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.runtimeconfig.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.runtimeconfig.dev.json
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Course_Sorter.pdb
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\NStack.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\WebDriver.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\bin\Debug\netcoreapp3.1\Terminal.Gui.dll
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.csproj.CopyComplete
+C:\Users\Toby Kim\Documents\GitHub\Course_Sorter\obj\Debug\netcoreapp3.1\Course_Sorter.genruntimeconfig.cache
